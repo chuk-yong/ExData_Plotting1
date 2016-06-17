@@ -1,12 +1,12 @@
-# read in data from 2007 Feb 01 and 02
+# read in data between 2007 Feb 01 and 02
 library(sqldf)
 data <- read.csv.sql("household_power_consumption.txt", header = TRUE, sep = ";", sql = 'select * from file where Date == "1/2/2007" or Date == "2/2/2007"')
 # 2880 obs or 9 variables
 
-# convert to date
+# date conversion
 data$Date <- as.Date(data$Date, format = "%d/%m/%Y")
 
-# convert to time
+# time conversion
 library(chron)
 data$Time <- chron(times = data$Time)
 
