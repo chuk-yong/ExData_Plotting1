@@ -14,7 +14,7 @@ data$Time <- chron(times = data$Time)
 datetime <- paste(data$Date, data$Time)
 data$Datetime <- as.POSIXct(datetime)
 
-# plot 
+# plot graph
 plot(data$Global_active_power~data$Datetime, type="l",
      ylab="Global Active Power (kilowatts)", xlab="")
 
